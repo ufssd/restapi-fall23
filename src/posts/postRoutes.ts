@@ -23,7 +23,7 @@ postsRouter.get("/posts/post/:id", async (request: Request, response: Response) 
 
 postsRouter.post("/posts/post", async (request: Request, response: Response) => {
   const id = await createPost(request.body);
-  response.status(201).send();
+  response.status(201).location(id).send();
 });
 
 postsRouter.put("/posts/post/:id", async (request: Request, response: Response) => {

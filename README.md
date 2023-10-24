@@ -18,10 +18,10 @@ If you want to customize any project settings, check out our [JavaScript/TypeScr
 ## Project Structure && Architecture
 All code is inside `src`, and the backend's entry point is `src/main.ts`.
 
-The `posts` folder contains all the code for the post features.
+The `posts` folder contains all the code for the post feature.
 
 * `postRoutes.ts` is where API routes are defined, and where HTTP requests and responses are handled.
 * `postDAO.ts` handles database interaction (DAO stands for Data Access Object).
 * `postModel.ts` defines a data model for posts in our database. This deals with differences in how posts are represented in our code and how they're respresented in the database.
 
-
+If you want to add additional features for your own backend, we recommend adding additional folders like `posts` for each feature you have. Check out the workshop recording for more architecture details.
