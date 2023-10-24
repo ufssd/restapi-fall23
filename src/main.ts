@@ -2,7 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import { config } from "dotenv";
 
-import router from "./routes";
+import postsRouter from "./posts/postRoutes";
 
 console.log("Starting server!");
 
@@ -26,7 +26,7 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use("/api", router);
+app.use("/api", postsRouter);
 
 console.log("Running server on port 4000!");
 app.listen(process.env.PORT);

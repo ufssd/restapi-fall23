@@ -5,7 +5,12 @@ type Post = {
   timestamp: Date;
 };
 
-export interface CreateUpdatePostRequest {
+export type CreatePostRequest = {
+  username: string;
+  message: string;
+}
+
+export type UpdatePostRequest = {
   username: string;
   message: string;
 }

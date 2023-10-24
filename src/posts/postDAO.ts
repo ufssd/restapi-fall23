@@ -1,4 +1,4 @@
-import Post, { CreateUpdatePostRequest } from "./post";
+import Post, { CreatePostRequest, UpdatePostRequest } from "./post";
 import postModel, { postFromModel } from "./postModel"
 
 export const getPost = async (id: string): Promise<Post | undefined> => {
@@ -11,7 +11,7 @@ export const listAllPosts = async (): Promise<Post[]> => {
   return query.map((post) => postFromModel(post));
 };
 
-export const createPost = async (post: CreateUpdatePostRequest): Promise<string> => {
+export const createPost = async (post: CreatePostRequest): Promise<string> => {
   const insertion = await postModel.create({
     username: post.username,
     message: post.message,
@@ -23,7 +23,7 @@ export const createPost = async (post: CreateUpdatePostRequest): Promise<string>
 
 export const updatePost = async (
   id: string, 
-  post: CreateUpdatePostRequest
+  post: UpdatePostRequest
 ): Promise<Post | undefined> => {
   const update = await postModel.findOneAndUpdate({_id: id}, post);
   return update ? postFromModel(update) : undefined;
